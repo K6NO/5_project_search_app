@@ -27,14 +27,14 @@ $(document).ready(function () {
                 // list albums
                 $.each(result.albums.items, function (i, album) {
                     albumsHTML += '<li><div class="album-wrap">';
-                    albumsHTML += '<a href="' + album.external_urls.spotify + '">';
+                    albumsHTML += '<a href="" class="details_link" id="' + album.id + '">';
                     albumsHTML += '<img class="album-art" src="' + album.images[0].url + '">';
                     albumsHTML += '</a>';
                     albumsHTML += '</div>';
                     albumsHTML += '<span class="album-title">' + album.name + '</span>';
                     albumsHTML += '<span class="album-artist">' + album.artists[0].name + '</span>';
                     console.log(album.id);
-                    albumsHTML += '<span class="album-title"><a href="" class="details_link" id="' + album.id + '">Click for details!</a></span>';
+                    //albumsHTML += '<span class="album-title"><a href="" class="details_link" id="' + album.id + '">Click for details!</a></span>';
                     albumsHTML += '</li>';
                 }); // end each
 
@@ -65,7 +65,7 @@ $(document).ready(function () {
                         }
                         singleAlbumMainHTML += '<h1 class="album-detail-name">' + album.name + ' (' + albumReleaseDate + ')</h1>';
                         singleAlbumMainHTML += '<h3 class="album-detail-artist">' + album.artists[0].name + '</h3></div></div>';
-                        singleAlbumMainHTML += '<div class="album-detail-wrap"><img class="album-detail-art" src="' + album.images[0].url +'"/></div>';
+                        singleAlbumMainHTML += '<div class="album-detail-wrap"><a href="' + album.external_urls.spotify + '"><img class="album-detail-art" src="' + album.images[0].url +'"/></a></div>';
                         singleAlbumMainHTML += '<p class="track-list-label">track list:</p>';
                         singleAlbumMainHTML += '<ol class="track-list">';
                         $.each(album.tracks.items, function(i, track){
